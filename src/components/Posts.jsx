@@ -11,8 +11,8 @@ export default function Posts() {
   useEffect(()=>{
     async function fetchAllPosts() {
       try{
-  
-        const response = await  fetch(`${baseUrl}/posts`)
+ 
+        const response = await fetch(`${baseUrl}/posts`)
         const result = await response.json()
         setAllPosts(result.data.posts)
   

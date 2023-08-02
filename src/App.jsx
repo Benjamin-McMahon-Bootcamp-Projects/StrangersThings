@@ -6,7 +6,12 @@ import Login from './components/Login'
 import Register from './components/Register'
 import NavBar from './components/NavBar'
 
+const mainBaseUrl = 'https://strangers-things.herokuapp.com/api/'
+const cohort = '2306-FTB-ET-WEB-FT'
+const baseUrl = mainBaseUrl + cohort
+
 function App() {
+
 
 
 
