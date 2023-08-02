@@ -4,6 +4,7 @@ import Posts from './components/Posts'
 import Profile from './components/Proflie'
 import Login from './components/Login'
 import Register from './components/Register'
+import NavBar from './components/NavBar'
 
 function App() {
 
@@ -11,8 +12,9 @@ function App() {
 
   return (
     <div>
+      <NavBar />
       <Routes>
-        <Route path='/posts' element={<Posts />} />
+        <Route path='/' element={<Posts />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

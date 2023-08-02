@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.itemContainer{
+  border: 2px solid rgb(152, 152, 152);
+  border-radius: 10px;
+}
+
+.navBar{
+  position: fixed;
+  top: 10px;
+  left: 50vw;
+  transform: translateX(-50%);
+  border: 2px solid rgb(152, 152, 152);
+  border-radius: 10px;
+}
