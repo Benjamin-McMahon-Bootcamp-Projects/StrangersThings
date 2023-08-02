@@ -27,6 +27,7 @@ export default function Posts() {
 
   return(
     <div>
+      <h3>All Posts</h3>
       {
         allPosts.map((post, index)=>{
           return(
@@ -40,7 +41,4 @@ export default function Posts() {
       }
     </div>
   )
-  
-  
-  
-  }
+}

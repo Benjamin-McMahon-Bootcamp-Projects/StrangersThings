@@ -2,8 +2,9 @@ export default function Register() {
 
 
 
-return
-
-
-
+  return(
+    <div>
+      <h3>Register</h3>
+    </div>
+  )
 }

@@ -48,9 +48,20 @@
 
 .navBar{
   position: fixed;
-  top: 10px;
+  top: 0px;
   left: 50vw;
   transform: translateX(-50%);
-  border: 2px solid rgb(152, 152, 152);
-  border-radius: 10px;
+  background-color: #707070;
+  width: 100vw;
+  height: 75px;
+}
+
+.navText{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navText > a {
+  color: black;
 }

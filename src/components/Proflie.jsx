@@ -2,8 +2,9 @@ export default function Profile() {
 
 
 
-  return
-  
-  
-  
-  }
+  return(
+    <div>
+      <h3>Profile</h3>
+    </div>
+  )
+}
