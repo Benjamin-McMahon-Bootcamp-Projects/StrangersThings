@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Register() {
 
@@ -7,39 +7,41 @@ export default function Register() {
   const baseUrl = mainBaseUrl + cohort
 
   const [ token, setToken ] = useState('')
-  const [ successMessage, setSuccessMessage ] =useState('')
+  const [ registerMessage, setRegisterMessage ] =useState('')
   const [ username, setUsername ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ user, setUser ] = useState({})
 
-    async function fetchUserRegister() {
-      try{
+  async function fetchUserRegister() {
+    try{
 
-        const response = await fetch(`${baseUrl}/users/register`, {
-          method: 'POST',
-          headers: {'Content-Type' : 'application/json'},
-          body: JSON.stringify({user})
-        })
+      const response = await fetch(`${baseUrl}/users/register`, {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({user})
+      })
 
-        const result = await response.json()
-        console.log(result)
-        setToken(result.data.token)
-        setSuccessMessage(result.data.message)
+      const result = await response.json()
+      console.log(result)
+      setToken(result.data.token)
+      setRegisterMessage(result.data.message)
 
-        console.log(successMessage)
-        
+      console.log(successMessage)
+      
 
-      }catch(err){
-        console.log('Error during user registration')
-      }
+    }catch(err){
+      console.log('Error during user registration')
     }
+  }
 
   return(
     <div>
+      <h3>Register</h3>
+
       <div className="registerContainer">
         <form onSubmit={(event)=>{
           // logic to run when form is submitted
-          
+
           event.preventDefault()
           setUser({
             username: username,
@@ -56,19 +58,15 @@ export default function Register() {
           </label>
 
           <label>
-            Password: <input type="text" value={password} onChange={(event)=>{setPassword(event.target.value)}} />
+            Password: <input type="password" value={password} onChange={(event)=>{setPassword(event.target.value)}} />
           </label>
 
           <button type="submit">Submit</button>
         </form>
       </div>
 
-
-
-
-      <h3>Register</h3>
-      <h3>{token}</h3>
-      <h3>{successMessage}</h3>
+      <h3>{registerMessage}</h3>
+      <h4>{token}</h4>
     </div>
   )
 }
