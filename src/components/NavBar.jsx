@@ -12,7 +12,7 @@ export default function NavBar({ username, isAuth }) {
           !isAuth && <h1></h1>
         }</div>
         <Link to='/'>Posts</Link>
-        <Link to='/profile'>Profile</Link>
+        {isAuth && <Link to='/profile'>Profile</Link>}
         {!isAuth && <Link to='/login'>Login</Link>}
         {isAuth && <Link to='/logout'>Logout</Link>}
         {!isAuth && <Link to='/register'>Register</Link>}
