@@ -43,7 +43,10 @@
 
 .itemContainer{
   border: 2px solid rgb(152, 152, 152);
-  border-radius: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: rgb(107, 107, 107);
+  color: rgb(245, 245, 245);
 }
 
 .navBar{

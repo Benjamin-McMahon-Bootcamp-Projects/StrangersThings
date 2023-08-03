@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const mainBaseUrl = 'https://strangers-things.herokuapp.com/api/'
-const cohort = '2306-FTB-ET-WEB-FT'
-const baseUrl = mainBaseUrl + cohort
-
-export default function Posts() {
+export default function Posts({ baseUrl }) {
 
   const [ allPosts, setAllPosts ] = useState([])
+  const navigate = useNavigate()
 
   useEffect(()=>{
     async function fetchAllPosts() {
@@ -23,8 +21,6 @@ export default function Posts() {
     fetchAllPosts()
   }, [])
 
-  console.log(allPosts)
-
   return(
     <div>
       <h3>All Posts</h3>
@@ -34,7 +30,10 @@ export default function Posts() {
             <div key={index} className='itemContainer'>
               <h3>{post.title}</h3>
               <h5>{post.description}</h5>
-              <h3>{post.locaiton}</h3>
+              <h3>{post.location}</h3>
+              <button onClick={()=>{
+                navigate(`/${post._id}`)
+              }}>See Details</button>
             </div>
           )
         })

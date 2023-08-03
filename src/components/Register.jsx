@@ -1,16 +1,8 @@
 import { useState } from "react"
 
-export default function Register() {
+export default function Register({ baseUrl, username, setUsername, password, setPassword, token, setToken }) {
 
-  const mainBaseUrl = 'https://strangers-things.herokuapp.com/api/'
-  const cohort = '2306-FTB-ET-WEB-FT'
-  const baseUrl = mainBaseUrl + cohort
-
-  const [ token, setToken ] = useState('')
   const [ registerMessage, setRegisterMessage ] =useState('')
-  const [ username, setUsername ] = useState('')
-  const [ password, setPassword ] = useState('')
-  const [ user, setUser ] = useState({})
 
   async function fetchUserRegister() {
     try{
@@ -18,16 +10,18 @@ export default function Register() {
       const response = await fetch(`${baseUrl}/users/register`, {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({user})
+        body: JSON.stringify({
+          user: {
+            username,
+            password
+          }
+        })
       })
 
       const result = await response.json()
       console.log(result)
       setToken(result.data.token)
       setRegisterMessage(result.data.message)
-
-      console.log(successMessage)
-      
 
     }catch(err){
       console.log('Error during user registration')
@@ -41,14 +35,12 @@ export default function Register() {
       <div className="registerContainer">
         <form onSubmit={(event)=>{
           // logic to run when form is submitted
-
           event.preventDefault()
-          setUser({
-            username: username,
-            password: password
-          })
-          fetchUserRegister()
-          console.log('form tried submit')
+          if (username && password){
+            fetchUserRegister()
+          }else{
+            alert('Please enter registration details')
+          }
 
         }}>
           {/* the start of the form children elements */}
@@ -66,7 +58,6 @@ export default function Register() {
       </div>
 
       <h3>{registerMessage}</h3>
-      <h4>{token}</h4>
     </div>
   )
 }
