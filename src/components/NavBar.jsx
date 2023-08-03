@@ -13,8 +13,9 @@ export default function NavBar({ username, isAuth }) {
         }</div>
         <Link to='/'>Posts</Link>
         <Link to='/profile'>Profile</Link>
-        <Link to='/login'>{isAuth ? 'Logout' : 'Login'}</Link>
-        <Link to='/register'>Register</Link>
+        {!isAuth && <Link to='/login'>Login</Link>}
+        {isAuth && <Link to='/logout'>Logout</Link>}
+        {!isAuth && <Link to='/register'>Register</Link>}
       </div>
     </div>  
   )
