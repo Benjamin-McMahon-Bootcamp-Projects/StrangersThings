@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react"
 
-export default function Login() {
+export default function Login({ isAuth, setIsAuth, username, setUsername, password, setPassword, token, setToken }) {
 
   const mainBaseUrl = 'https://strangers-things.herokuapp.com/api/'
   const cohort = '2306-FTB-ET-WEB-FT'
   const baseUrl = mainBaseUrl + cohort
 
-  const [ username, setUsername ] = useState('')
-  const [ password, setPassword ] = useState('')
-  const [ token, setToken ] = useState('')
   const [ loginMessage, setLoginMessage ] = useState('')
-
 
   async function fetchUserLogin() {
     try{
@@ -27,6 +23,8 @@ export default function Login() {
       console.log(result)
       setToken(result.data.token)
       setLoginMessage(result.data.message)
+      setIsAuth(true)
+      console.log(isAuth)
 
     }catch(err){
       console.log('Error trying to fetch login')
