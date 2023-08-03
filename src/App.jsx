@@ -18,9 +18,9 @@ function App() {
   const [ username, setUsername ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ token, setToken ] = useState('')
+  const [ selectedPost, setSelectedPost ] = useState({})
 
   console.log(isAuth, username, password, token)
-
 
   return (
     <div>
@@ -28,9 +28,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Posts 
           baseUrl={baseUrl}
+          setSelectedPost={setSelectedPost}
          />} />
         <Route path='/:postId' element={<Details
-          baseUrl={baseUrl}
+          selectedPost={selectedPost}
         />} /> 
         <Route path='/profile' element={<Profile
           baseUrl={baseUrl}
@@ -47,6 +48,7 @@ function App() {
           baseUrl={baseUrl}
           username={username} setUsername={setUsername}
           password={password} setPassword={setPassword}
+          isAuth={isAuth} setIsAuth={setIsAuth}
           token={token} setToken={setToken}
         />} />
       </Routes>

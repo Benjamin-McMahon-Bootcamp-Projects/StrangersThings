@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-export default function Posts({ baseUrl }) {
+export default function Posts({ baseUrl, setSelectedPost }) {
 
   const [ allPosts, setAllPosts ] = useState([])
   const navigate = useNavigate()
@@ -23,7 +23,6 @@ export default function Posts({ baseUrl }) {
 
   return(
     <div>
-      <h3>All Posts</h3>
       {
         allPosts.map((post, index)=>{
           return(
@@ -33,6 +32,7 @@ export default function Posts({ baseUrl }) {
               <h3>{post.location}</h3>
               <button onClick={()=>{
                 navigate(`/${post._id}`)
+                setSelectedPost(post)
               }}>See Details</button>
             </div>
           )

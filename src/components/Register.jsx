@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Register({ baseUrl, username, setUsername, password, setPassword, token, setToken }) {
+export default function Register({ baseUrl, username, setUsername, password, setPassword, token, setToken, isAuth, setIsAuth }) {
 
   const [ registerMessage, setRegisterMessage ] =useState('')
 
@@ -22,6 +22,7 @@ export default function Register({ baseUrl, username, setUsername, password, set
       console.log(result)
       setToken(result.data.token)
       setRegisterMessage(result.data.message)
+      setIsAuth(true)
 
     }catch(err){
       console.log('Error during user registration')

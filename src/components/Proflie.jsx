@@ -16,8 +16,8 @@ export default function Profile({ token, baseUrl }) {
           },
         })
         const result = await response.json()
-        setUser(result)
-        console.log(`Profile return ${result}`)
+        setUser(result.data)
+        console.log(user)
 
       }catch(err){
         console.log('Error fetching user profile')
@@ -28,8 +28,8 @@ export default function Profile({ token, baseUrl }) {
 
   return(
     <div>
-      <h3>Profile</h3>
-      <h3>{user.username}</h3>
+      <h3>Username: {user.username}</h3>
+      <h3>ID: {user._id}</h3>
     </div>
   )
 }
