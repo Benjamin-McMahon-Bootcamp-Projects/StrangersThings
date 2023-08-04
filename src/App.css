@@ -57,6 +57,7 @@
   background-color: #707070;
   width: 100vw;
   height: 75px;
+  border-bottom: 2px solid black;
 }
 
 .navText{
