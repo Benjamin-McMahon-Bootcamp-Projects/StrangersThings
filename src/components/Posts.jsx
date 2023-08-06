@@ -22,7 +22,7 @@ export default function Posts({ baseUrl, setSelectedPost }) {
   }, [])
 
   return(
-    <div>
+    <div className='allItemsContainer'>
       {
         allPosts.map((post, index)=>{
           return(
