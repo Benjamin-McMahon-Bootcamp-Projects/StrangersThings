@@ -52,4 +52,5 @@
 .profileContainer{
   text-align: center;
   position: relative;
+  overflow: scroll;
 }  
