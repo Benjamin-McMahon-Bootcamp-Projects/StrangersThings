@@ -4,6 +4,7 @@ import Posts from './components/Posts'
 import Profile from './components/Proflie'
 import Login from './components/Login'
 import Logout from './components/Logout'
+import CreatePost from './components/CreatePost'
 import Register from './components/Register'
 import NavBar from './components/NavBar'
 import { useState } from 'react'
@@ -35,6 +36,10 @@ function App() {
           selectedPost={selectedPost}
         />} /> 
         <Route path='/profile' element={<Profile
+          baseUrl={baseUrl}
+          token={token}
+        />} />
+        <Route path='/post' element={<CreatePost
           baseUrl={baseUrl}
           token={token}
         />} />

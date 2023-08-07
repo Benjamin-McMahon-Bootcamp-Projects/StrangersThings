@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import CreatePost from "./CreatePost"
 
 export default function Profile({ token, baseUrl }) {
 
   const [ user, setUser ] = useState({})
+  const navigate = useNavigate()
 
   useEffect(()=>{
     async function fetchUserProfile() {
@@ -27,9 +30,30 @@ export default function Profile({ token, baseUrl }) {
   }, [])
 
   return(
-    <div>
-      <h3>Username: {user.username}</h3>
-      <h3>ID: {user._id}</h3>
+    <div className="profileContainer">
+      <div className="profileInfo">
+        <button onClick={()=>{
+          navigate('/post')
+        }}>New Post</button>
+        <h3>Username: {user.username}</h3>
+        <h3>ID: {user._id}</h3>
+      </div>
+      <div className="profilePosts">
+        {
+            // user.posts.map((post, index)=>{
+            //   return(
+            //     <div key={index} className="usersPost">
+            //       <h3>{post.title}</h3>
+            //       <h3>{post.price}</h3>
+            //       <h5>{post.description}</h5>
+            //       <h3>{post.location}</h3>
+            //       <button>Edit Post</button>
+            //       <button>Delete Post</button>
+            //     </div>  
+            //   )
+            // })
+        }
+      </div>
     </div>
   )
 }

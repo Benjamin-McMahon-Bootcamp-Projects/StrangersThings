@@ -48,3 +48,8 @@
   color: black;
   margin: 10px;
 }
+
+.profileContainer{
+  text-align: center;
+  position: relative;
+}  

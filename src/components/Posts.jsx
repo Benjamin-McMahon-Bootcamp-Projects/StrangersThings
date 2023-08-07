@@ -28,6 +28,7 @@ export default function Posts({ baseUrl, setSelectedPost }) {
           return(
             <div key={index} className='itemContainer'>
               <h3>{post.title}</h3>
+              <h3>{post.price}</h3>
               <h5>{post.description}</h5>
               <h3>{post.location}</h3>
               <button onClick={()=>{
